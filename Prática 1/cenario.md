@@ -16,5 +16,6 @@ A NovaTech contratou a DB1 para construir um assistente de IA que permita aos at
 - A NovaTech já tem licenças Microsoft 365 E3 e está disposta a provisionar Azure AI Services.
 - O projeto tem orçamento para 3 meses de discovery + desenvolvimento + go-live.
 - A expectativa da diretoria é reduzir o tempo médio de busca de 12 para menos de 2 minutos por chamado.
+- Os atendentes hoje abrem em média 4 fontes diferentes por chamado. As dúvidas mais comuns são sobre prazos de entrega (35%), regras de frete (25%), política de devolução (20%) e outros (20%). Em 15% dos casos, o atendente não encontra resposta e escala para o supervisor.
 
 ---
