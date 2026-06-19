@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech Assistant — Mockups</title>
+<style>
+  /* ── TOKENS ───────────────────────────────────────────────── */
+  :root {
+    --navy:      #0F1F3D;
+    --navy-mid:  #1A3260;
+    --blue:      #1E5BAD;
+    --blue-lt:   #2E74CC;
+    --teal:      #0D8C7A;
+    --teal-lt:   #14B09A;
+    --amber:     #D97706;
+    --amber-lt:  #FEF3C7;
+    --red:       #C0392B;
+    --red-lt:    #FDECEA;
+    --green:     #166534;
+    --green-lt:  #DCFCE7;
+    --gray-900:  #111827;
+    --gray-700:  #374151;
+    --gray-500:  #6B7280;
+    --gray-300:  #D1D5DB;
+    --gray-100:  #F3F4F6;
+    --gray-50:   #F9FAFB;
+    --white:     #FFFFFF;
+    --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Consolas', 'Courier New', monospace;
+    --radius:    8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.10);
+    --shadow:    0 4px 12px rgba(0,0,0,.10);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    background: #E8EDF4;
+    color: var(--gray-900);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── COVER ───────────────────────────────────────────────── */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--teal-lt);
+  }
+  .cover h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    max-width: 600px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,.55);
+  }
+  .cover-screens {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .screen-badge {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,.80);
+  }
+
+  /* ── SECTION LABEL ───────────────────────────────────────── */
+  .section-label {
+    padding: 36px 48px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::before {
+    content: '';
+    width: 4px;
+    height: 28px;
+    background: var(--teal);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-label p {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+
+  /* ── SCREEN WRAPPER ──────────────────────────────────────── */
+  .screen-wrapper {
+    padding: 0 48px 48px;
+  }
+  .screen-frame {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    max-width: 960px;
+  }
+  .screen-title-bar {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .screen-title-bar .dots { display: flex; gap: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FFBD2E; }
+  .dot-g { background: #28CA42; }
+  .screen-title-bar .url-bar {
+    flex: 1;
+    max-width: 320px;
+    margin: 0 16px;
+    background: rgba(255,255,255,.12);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: rgba(255,255,255,.7);
+  }
+
+  /* ── TEAMS SHELL ─────────────────────────────────────────── */
+  .teams-shell {
+    display: flex;
+    height: 580px;
+  }
+  .teams-sidebar {
+    width: 56px;
+    background: var(--navy-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .teams-sidebar-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: rgba(255,255,255,.6);
+    cursor: pointer;
+  }
+  .teams-sidebar-icon.active {
+    background: rgba(255,255,255,.15);
+    color: var(--white);
+  }
+  .teams-nav {
+    width: 220px;
+    background: #F0F2F5;
+    border-right: 1px solid var(--gray-300);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .teams-nav-header {
+    padding: 14px 16px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 1px solid var(--gray-300);
+  }
+  .teams-nav-item {
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--gray-700);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .teams-nav-item.active {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .teams-nav-item .icon { font-size: 14px; }
+  .teams-chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    overflow: hidden;
+  }
+  .chat-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-header-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--teal);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .chat-header-info strong {
+    font-size: 13px;
+    display: block;
+    color: var(--navy);
+  }
+  .chat-header-info span {
+    font-size: 11px;
+    color: var(--teal);
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .msg-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .msg-row.user { flex-direction: row-reverse; }
+  .msg-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: var(--white);
+  }
+  .msg-avatar.bot { background: var(--teal); font-size: 14px; }
+  .msg-avatar.user-av { background: var(--blue); }
+  .msg-bubble {
+    max-width: 68%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .msg-bubble.user {
+    background: var(--blue);
+    color: var(--white);
+    border-bottom-right-radius: 4px;
+  }
+  .msg-bubble.bot {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-900);
+    border-bottom-left-radius: 4px;
+  }
+  .msg-time {
+    font-size: 10px;
+    color: var(--gray-500);
+    margin-top: 3px;
+    padding: 0 4px;
+  }
+  .msg-row.user .msg-time { text-align: right; }
+
+  /* ── ANSWER CARD ─────────────────────────────────────────── */
+  .answer-card {
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13px;
+    max-width: 560px;
+    box-shadow: var(--shadow-sm);
+  }
+  .answer-body {
+    padding: 14px 16px;
+    line-height: 1.6;
+    color: var(--gray-900);
+  }
+  .answer-body strong { color: var(--navy); }
+
+  /* confidence pill */
+  .confidence-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .confidence-high { background: var(--green-lt); color: var(--green); }
+  .confidence-mod  { background: var(--amber-lt); color: var(--amber); }
+  .confidence-low  { background: var(--red-lt);   color: var(--red);   }
+
+  /* source block */
+  .source-block {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-300);
+    padding: 10px 16px;
+  }
+  .source-block-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .source-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .source-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .source-chip .doc-icon { font-size: 12px; }
+
+  /* alert banner */
+  .alert-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .alert-banner.conflict {
+    background: #FFF8E1;
+    border-top: 1px solid #F59E0B;
+    color: #92400E;
+  }
+  .alert-banner.informal {
+    background: var(--red-lt);
+    border-top: 1px solid #FECACA;
+    color: #991B1B;
+  }
+  .alert-banner.stale {
+    background: #EFF6FF;
+    border-top: 1px solid #BFDBFE;
+    color: #1E40AF;
+  }
+  .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+  /* feedback row */
+  .feedback-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-top: 1px solid var(--gray-100);
+    background: var(--gray-50);
+  }
+  .feedback-row span {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-right: 4px;
+  }
+  .fb-btn {
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--gray-700);
+  }
+  .fb-btn:hover { background: var(--gray-100); }
+
+  /* chat input */
+  .chat-input-area {
+    padding: 12px 20px;
+    border-top: 1px solid var(--gray-300);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .chat-input {
+    flex: 1;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    resize: none;
+    outline: none;
+    color: var(--gray-700);
+    min-height: 38px;
+  }
+  .send-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border: none;
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── ABSENCE CARD ────────────────────────────────────────── */
+  .absence-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-300);
+    border-left: 3px solid var(--amber);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    max-width: 520px;
+  }
+  .absence-card .absence-title {
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .absence-card .absence-body { color: var(--gray-700); line-height: 1.55; }
+  .absence-card .next-step {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--white);
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+    font-size: 12px;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .gap-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--gray-700);
+    cursor: pointer;
+  }
+
+  /* ── CONFLICT CARD ───────────────────────────────────────── */
+  .conflict-header {
+    background: #FFFBEB;
+    border-bottom: 1px solid #FDE68A;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #92400E;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .doc-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--gray-200);
+  }
+  .doc-col {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+  .doc-col:first-child { border-right: 1px solid var(--gray-300); }
+  .doc-col-header {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .doc-col.winning .doc-col-header { color: var(--teal); }
+  .doc-col.losing  .doc-col-header { color: var(--gray-400); }
+  .doc-col.losing  { opacity: .65; }
+  .doc-val {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .doc-col.losing .doc-val { text-decoration: line-through; color: var(--gray-500); }
+  .doc-reason {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+  .winning-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    background: var(--teal-lt);
+    color: var(--white);
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-top: 6px;
+  }
+
+  /* ── MULTI-DOMAIN CARD ───────────────────────────────────── */
+  .multi-domain {
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 560px;
+    font-size: 13px;
+  }
+  .domain-section {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .domain-section:last-child { border-bottom: none; }
+  .domain-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-bottom: 7px;
+  }
+  .domain-tag.devolucao { background: #EDE9FE; color: #5B21B6; }
+  .domain-tag.frete     { background: #DBEAFE; color: #1D4ED8; }
+  .domain-tag.sla       { background: #D1FAE5; color: #065F46; }
+  .domain-tag.ausente   { background: var(--gray-100); color: var(--gray-500); }
+  .domain-body { color: var(--gray-700); line-height: 1.55; }
+
+  /* ── ONBOARDING ──────────────────────────────────────────── */
+  .onboarding-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 480px;
+  }
+  .onboarding-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .onboarding-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,.75);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .onboarding-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .onboarding-chip {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,.85);
+    cursor: pointer;
+  }
+  .onboarding-chip:hover { background: rgba(255,255,255,.2); }
+  .ok-btn {
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 7px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* ── ANNOTATIONS ─────────────────────────────────────────── */
+  .annotation-grid {
+    display: flex;
+    gap: 32px;
+    padding: 0 48px 48px;
+    flex-wrap: wrap;
+  }
+  .annotation-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+  }
+  .ann-num {
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .ann-text strong { display: block; font-size: 12px; color: var(--navy); }
+  .ann-text span { font-size: 11px; color: var(--gray-500); line-height: 1.4; }
+
+  /* ── LOADING STATE ───────────────────────────────────────── */
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-300);
+    border-radius: 12px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+  .typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gray-400);
+  }
+  .typing-label { font-size: 11px; color: var(--gray-500); margin-left: 4px; }
+
+  /* ── AMBIGUOUS CARD ──────────────────────────────────────── */
+  .ambiguous-card {
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 500px;
+    font-size: 13px;
+  }
+  .ambiguous-header {
+    background: #EFF6FF;
+    border-bottom: 1px solid #BFDBFE;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1E40AF;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ambiguous-body {
+    padding: 12px 16px;
+    color: var(--gray-700);
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .clarify-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 16px 14px;
+  }
+  .clarify-option {
+    padding: 9px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--blue);
+    background: var(--white);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .clarify-option:hover { background: #EFF6FF; border-color: var(--blue-lt); }
+  .clarify-option::before {
+    content: '→';
+    font-size: 13px;
+    color: var(--gray-400);
+    flex-shrink: 0;
+  }
+
+  /* ── DIVIDER ─────────────────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: var(--gray-300);
+    margin: 0 48px 0;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--gray-500);
+    border-top: 1px solid var(--gray-300);
+    background: var(--white);
+  }
+  footer strong { color: var(--navy); }
+
+  /* ── HIDDEN STATES HELPER ────────────────────────────────── */
+  .state-tab-group {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+  .state-tab {
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--white);
+    color: var(--gray-500);
+    border: none;
+    cursor: pointer;
+    border-right: 1px solid var(--gray-300);
+  }
+  .state-tab:last-child { border-right: none; }
+  .state-tab.active { background: var(--navy); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COVER
+═══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-eyebrow">UX/UI · Proposta de Mockups · v1.0 · Jun 2026</div>
+  <h1>NovaTech Assistant<br>Interface de Consulta</h1>
+  <div class="cover-meta">
+    <span>Baseado em requirements.md — Query Endpoint</span>
+    <span>Microsoft Teams + Painel Web</span>
+    <span>DB1 × NovaTech</span>
+  </div>
+  <div class="cover-screens">
+    <span class="screen-badge">S1 · Onboarding</span>
+    <span class="screen-badge">S2 · Resposta com fonte</span>
+    <span class="screen-badge">S3 · Conflito documental</span>
+    <span class="screen-badge">S4 · Ausência de resposta</span>
+    <span class="screen-badge">S5 · Pergunta ambígua</span>
+    <span class="screen-badge">S6 · Multi-domínio</span>
+    <span class="screen-badge">S7 · Estado de carregamento</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S1 · ONBOARDING
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S1 — Onboarding · Primeira sessão do atendente</h2>
+    <p>Requisito: comunicar escopo e limitações antes do primeiro uso (VC-10 · Spec Seção 8.2)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+        <div class="teams-nav-item"><span class="icon">📊</span> Métricas</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online · Base atualizada hoje às 08:14</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="onboarding-card">
+                <h3>👋 Olá, Carla! Bem-vinda ao Assistente NovaTech.</h3>
+                <p>Respondo perguntas sobre documentação oficial da NovaTech em menos de 30 segundos. Toda resposta indica a fonte e o nível de confiança.</p>
+                <p><strong style="color:rgba(255,255,255,.9)">O que posso responder:</strong></p>
+                <div class="onboarding-chips">
+                  <span class="onboarding-chip">📦 Prazos de entrega</span>
+                  <span class="onboarding-chip">🚚 Regras de frete</span>
+                  <span class="onboarding-chip">↩️ Política de devolução</span>
+                  <span class="onboarding-chip">📋 SLAs por tier</span>
+                </div>
+                <p style="margin-bottom:10px"><strong style="color:rgba(255,255,255,.9)">O que não cubro nesta fase:</strong> seguro de carga, sinistros, negociações individuais e contratos de clientes.</p>
+                <button class="ok-btn">Entendido, começar →</button>
+              </div>
+              <div class="msg-time">09:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- annotations S1 -->
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Chips de escopo</strong><span>Clicáveis: preenchem o campo de entrada com pergunta de exemplo para reduzir fricção de início.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Fora do escopo visível</strong><span>Requisito explícito (Seção 8): atendente sabe de antemão o que não perguntar, evitando frustração.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Status da base</strong><span>"Base atualizada hoje às 08:14" — garante confiança e satisfaz a constraint de 24h (Seção Constraints).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S2 · RESPOSTA COM FONTE (estado principal)
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S2 — Resposta com fonte · Fluxo principal</h2>
+    <p>Requisito: toda resposta exibe fonte, versão, seção, data e nível de confiança (VC-01 · Constraints)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+        <div class="teams-nav-item"><span class="icon">📊</span> Métricas</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online · Base atualizada hoje às 08:14</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <!-- pergunta -->
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Qual o prazo para o cliente solicitar devolução de mercadoria?</div>
+              <div class="msg-time">09:07</div>
+            </div>
+          </div>
+          <!-- resposta -->
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="answer-card">
+                <div class="answer-body">
+                  O cliente pode solicitar a devolução em até <strong>7 dias úteis</strong> após a data de recebimento confirmada no sistema de tracking.<br><br>
+                  A contagem exclui sábados, domingos e feriados nacionais. <strong>Após esse prazo</strong>, a solicitação não é elegível pelo processo padrão — encaminhe ao Comercial para negociação caso a caso.
+                  <br><br>
+                  <span class="confidence-pill confidence-high">✓ Alta confiança</span>
+                </div>
+                <div class="source-block">
+                  <div class="source-block-label">Fonte utilizada</div>
+                  <div class="source-row">
+                    <div class="source-chip"><span class="doc-icon">📄</span> POL-001 · v3.1 · Seção 3.1</div>
+                    <div class="source-chip" style="color:var(--gray-500)">🗓 Atualizado em 15/01/2024</div>
+                  </div>
+                </div>
+                <div class="feedback-row">
+                  <span>Esta resposta foi útil?</span>
+                  <button class="fb-btn">✅ Sim</button>
+                  <button class="fb-btn">⚠️ Incompleta</button>
+                  <button class="fb-btn">❌ Incorreta</button>
+                </div>
+              </div>
+              <div class="msg-time">09:07 · 2,4 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Bloco de fonte sempre visível</strong><span>Nome do doc, versão, seção e data nunca ocultos (VC-11). Chips clicáveis abrem o documento no SharePoint.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Confiança inline</strong><span>Pill colorida (verde / âmbar / vermelho) na resposta — sem necessidade de expandir nada para identificar o nível.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Tempo de resposta</strong><span>"09:07 · 2,4 s" — visibilidade do SLA de 30s. Alarme visual se >25s (VC-08).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">4</div><div class="ann-text"><strong>Feedback 1-clique</strong><span>Três estados (VC-01): útil, incompleta, incorreta. Roteamento automático para área responsável (BC-06).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S3 · CONFLITO DOCUMENTAL
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S3 — Conflito documental · Documentos contraditórios</h2>
+    <p>Requisito: alertar o atendente, indicar versão vencedora e nunca combinar valores (VC-03 · ADR-0003)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Qual o multiplicador regional para carga especial com destino ao Norte?</div>
+              <div class="msg-time">09:12</div>
+            </div>
+          </div>
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="answer-card">
+                <div class="conflict-header">
+                  ⚠️ Atenção — versões conflitantes encontradas na base
+                </div>
+                <div class="answer-body">
+                  O multiplicador regional vigente para a região <strong>Norte</strong> é <strong>1,8</strong>, conforme a versão mais recente da PROC-042.
+                  <br><br>
+                  <span class="confidence-pill confidence-mod">⚠ Confiança moderada</span>
+                </div>
+                <div class="doc-compare">
+                  <div class="doc-col winning">
+                    <div class="doc-col-header">✓ Versão utilizada</div>
+                    <div class="doc-val">1,8</div>
+                    <div class="doc-reason">PROC-042-v2 · Nov/2023</div>
+                    <span class="winning-badge">✓ Mais recente</span>
+                  </div>
+                  <div class="doc-col losing">
+                    <div class="doc-col-header">Versão anterior (desconsiderada)</div>
+                    <div class="doc-val">1,6</div>
+                    <div class="doc-reason">PROC-042-v1 · Mar/2023</div>
+                  </div>
+                </div>
+                <div class="alert-banner conflict">
+                  <span class="alert-icon">⚠️</span>
+                  <div>A PROC-042-v1 ainda consta ativa no SharePoint sem marcação de revogação. Confirme com o supervisor se o contrato do cliente especifica qual versão deve ser aplicada.</div>
+                </div>
+                <div class="source-block">
+                  <div class="source-block-label">Fonte utilizada</div>
+                  <div class="source-row">
+                    <div class="source-chip"><span class="doc-icon">📄</span> PROC-042-v2 · v2.0 · Seção 2.1</div>
+                    <div class="source-chip" style="color:var(--gray-500)">🗓 10/11/2023</div>
+                  </div>
+                </div>
+                <div class="feedback-row">
+                  <span>Esta resposta foi útil?</span>
+                  <button class="fb-btn">✅ Sim</button>
+                  <button class="fb-btn">⚠️ Incompleta</button>
+                  <button class="fb-btn">❌ Incorreta</button>
+                </div>
+              </div>
+              <div class="msg-time">09:12 · 3,1 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Comparação lado a lado</strong><span>Valor vencedor (1,8) em destaque; valor desconsiderado (1,6) riscado. Nunca combinados numa afirmação (ADR-0003).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Nível de confiança moderado</strong><span>Conflito não resolvido formalmente → confiança rebaixa de Alta para Moderada (Spec Seção 6.2).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Alerta de governança</strong><span>Informa que a v1 ainda está ativa sem revogação formal. Orienta o atendente a escalar — não toma a decisão por ele.</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S4 · AUSÊNCIA DE RESPOSTA
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S4 — Ausência de resposta · Tema não coberto</h2>
+    <p>Requisito: declarar ausência estruturada com motivo e próximo passo — sem alucinação (VC-04 · VC-05)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Qual o percentual de seguro de carga para mercadorias refrigeradas?</div>
+              <div class="msg-time">09:18</div>
+            </div>
+          </div>
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="absence-card">
+                <div class="absence-title">🔍 Informação não disponível na base</div>
+                <div class="absence-body">
+                  <strong>Tema:</strong> Seguro de carga — mercadorias refrigeradas<br>
+                  <strong>Motivo:</strong> Não existe normativo formal sobre seguro de carga indexado na base documental do assistente. O FAQ de Atendimento menciona percentuais, mas esse documento é informal e não foi validado pelo Compliance.<br><br>
+                  O assistente não fornece valores sem respaldo normativo.
+                </div>
+                <div class="next-step">📞 Próximo passo: consulte a área <strong>Comercial</strong> para obter os percentuais vigentes para o contrato deste cliente.</div>
+                <button class="gap-btn">+ Registrar esta pergunta como lacuna da base</button>
+              </div>
+              <div class="msg-time">09:18 · 1,8 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Borda âmbar</strong><span>Sinalização visual imediata de ausência sem confundir com erro do sistema. Diferente do vermelho de fonte informal.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Motivo explícito</strong><span>Explica que existe uma fonte (FAQ) mas ela é informal. Não silencia sobre a existência do dado — explica por que não usa (VC-04).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Registrar lacuna</strong><span>CTA que alimenta o painel de gaps do BC-06 — torna o vácuo documental visível para a gestão (Outcomes de negócio).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S5 · PERGUNTA AMBÍGUA
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S5 — Pergunta ambígua · Solicita esclarecimento</h2>
+    <p>Requisito: não escolher interpretação arbitrária — apresentar opções e aguardar esclarecimento (VC-07)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Qual o prazo?</div>
+              <div class="msg-time">09:22</div>
+            </div>
+          </div>
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="ambiguous-card">
+                <div class="ambiguous-header">🔵 Sua pergunta pode ter mais de uma resposta</div>
+                <div class="ambiguous-body">Encontrei documentos com prazos sobre temas diferentes. Qual dos seguintes você está consultando?</div>
+                <div class="clarify-options">
+                  <button class="clarify-option">Prazo para solicitação de devolução após a entrega <span style="color:var(--gray-400);font-size:10px;margin-left:auto">POL-001</span></button>
+                  <button class="clarify-option">Prazo adicional de entrega para frete especial (acima de 500 kg) <span style="color:var(--gray-400);font-size:10px;margin-left:auto">PROC-042-v2</span></button>
+                  <button class="clarify-option">SLA de resposta ou resolução por tier de cliente <span style="color:var(--gray-400);font-size:10px;margin-left:auto">SLA-2024</span></button>
+                  <button class="clarify-option">Prazo de triagem, coleta reversa ou reembolso num processo de devolução <span style="color:var(--gray-400);font-size:10px;margin-left:auto">POL-001</span></button>
+                </div>
+              </div>
+              <div class="msg-time">09:22 · 1,6 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Selecione uma opção acima ou refine sua pergunta..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Opções clicáveis</strong><span>Cada opção é um botão que envia a pergunta refinada automaticamente — zero redigitação (UX de atendimento).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Fonte indicada antes da resposta</strong><span>O atendente sabe de onde virá a resposta antes de clicar — reforça confiança no sistema.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Nenhum valor antecipado</strong><span>O assistente não chuta o prazo mais provável. Aguarda confirmação — sem alucinação mesmo para resposta parcial (VC-07).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S6 · MULTI-DOMÍNIO
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S6 — Pergunta multi-domínio · Resposta por blocos</h2>
+    <p>Requisito: blocos separados por domínio, fonte independente por bloco, ausência explícita nas partes sem cobertura (VC-06)</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>● Online</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Cliente Gold quer saber o prazo de devolução, o multiplicador de frete para o Sudeste e o percentual do seguro de carga.</div>
+              <div class="msg-time">09:31</div>
+            </div>
+          </div>
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="multi-domain">
+                <div class="domain-section">
+                  <span class="domain-tag devolucao">↩️ Política de Devolução</span>
+                  <div class="domain-body">Prazo para solicitação: <strong>7 dias úteis</strong> após o recebimento confirmado no tracking, excluindo sábados, domingos e feriados.</div>
+                  <div style="margin-top:8px">
+                    <div class="source-row">
+                      <div class="source-chip"><span class="doc-icon">📄</span> POL-001 · v3.1 · Seção 3.1</div>
+                      <span class="confidence-pill confidence-high" style="font-size:10px">✓ Alta</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="domain-section">
+                  <span class="domain-tag frete">🚚 Logística de Frete</span>
+                  <div class="domain-body">Multiplicador regional para o <strong>Sudeste</strong>: <strong>1,1</strong> (cargas acima de 500 kg).</div>
+                  <div style="margin-top:8px">
+                    <div class="source-row">
+                      <div class="source-chip"><span class="doc-icon">📄</span> PROC-042-v2 · v2.0 · Seção 2.1</div>
+                      <span class="confidence-pill confidence-mod" style="font-size:10px">⚠ Moderada</span>
+                    </div>
+                  </div>
+                  <div class="alert-banner conflict" style="margin-top:8px;border-radius:6px;border:1px solid #FDE68A">
+                    <span class="alert-icon">⚠️</span><span>Versão anterior (PROC-042-v1) indica 1,0 para o Sudeste. Confirme versão aplicável ao contrato.</span>
+                  </div>
+                </div>
+                <div class="domain-section">
+                  <span class="domain-tag ausente">🔍 Seguro de Carga</span>
+                  <div class="domain-body" style="color:var(--gray-500)">Informação não disponível na base documental. Não existe normativo formal indexado sobre seguro de carga. Consulte o <strong style="color:var(--gray-700)">Comercial</strong> para este tema.</div>
+                </div>
+                <div class="feedback-row">
+                  <span>Esta resposta foi útil?</span>
+                  <button class="fb-btn">✅ Sim</button>
+                  <button class="fb-btn">⚠️ Incompleta</button>
+                  <button class="fb-btn">❌ Incorreta</button>
+                </div>
+              </div>
+              <div class="msg-time">09:31 · 4,2 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea>
+          <button class="send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Tags de domínio</strong><span>Cor por área (roxo/devolução, azul/frete, cinza/ausente) permite varredura visual rápida em chamado ativo.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Fonte e confiança por bloco</strong><span>Cada seção tem rastreabilidade independente — não mistura fontes de domínios distintos (VC-06d).</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Bloco de ausência inline</strong><span>A lacuna de seguro de carga aparece no mesmo card, não numa mensagem separada — contexto completo numa leitura.</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     S7 · ESTADO DE CARREGAMENTO
+═══════════════════════════════════════════════════════════ -->
+<div class="section-label">
+  <div>
+    <h2>S7 — Estado de carregamento · Feedback visual ativo</h2>
+    <p>Requisito: resposta em &lt; 30s (VC-08) — o atendente precisa saber que o assistente está processando</p>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="screen-title-bar">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <div class="url-bar">teams.microsoft.com · NovaTech Assistant</div>
+    </div>
+    <div class="teams-shell">
+      <div class="teams-sidebar">
+        <div class="teams-sidebar-icon">🏠</div>
+        <div class="teams-sidebar-icon">💬</div>
+        <div class="teams-sidebar-icon active">🤖</div>
+        <div class="teams-sidebar-icon">📋</div>
+        <div class="teams-sidebar-icon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="teams-nav">
+        <div class="teams-nav-header">Assistente NovaTech</div>
+        <div class="teams-nav-item active"><span class="icon">🤖</span> Nova consulta</div>
+        <div class="teams-nav-item"><span class="icon">🕐</span> Histórico</div>
+      </div>
+      <div class="teams-chat-area">
+        <div class="chat-header">
+          <div class="chat-header-avatar">🤖</div>
+          <div class="chat-header-info">
+            <strong>Assistente NovaTech</strong>
+            <span>⏳ Buscando na base documental...</span>
+          </div>
+        </div>
+        <div class="chat-messages">
+          <div class="msg-row user">
+            <div class="msg-avatar user-av">CA</div>
+            <div>
+              <div class="msg-bubble user">Quais são as penalidades para descumprimento de SLA de cliente Silver?</div>
+              <div class="msg-time">09:35</div>
+            </div>
+          </div>
+          <div class="msg-row">
+            <div class="msg-avatar bot">🤖</div>
+            <div>
+              <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <span class="typing-label">Consultando SLA-2024 · 3,2 s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea class="chat-input" rows="1" placeholder="Aguardando resposta..." disabled style="opacity:.5"></textarea>
+          <button class="send-btn" disabled style="opacity:.4;cursor:not-allowed">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="annotation-grid">
+  <div class="annotation-item"><div class="ann-num">1</div><div class="ann-text"><strong>Status do header atualizado</strong><span>"⏳ Buscando na base..." substitui o "Online" durante o processamento — indicador contextual, não genérico.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">2</div><div class="ann-text"><strong>Timer visível</strong><span>"Consultando SLA-2024 · 3,2 s" — o atendente vê o documento sendo consultado e o tempo correndo. Alerta visual se >25s.</span></div></div>
+  <div class="annotation-item"><div class="ann-num">3</div><div class="ann-text"><strong>Input desabilitado</strong><span>Previne envio de nova pergunta durante processamento, evitando sobrecarga e confusão de contexto.</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div><strong>NovaTech Assistant</strong> — Proposta de Mockups v1.0</div>
+  <div>UX/UI · Baseado em requirements.md · DB1 × NovaTech · Jun 2026</div>
+  <div>7 telas · 12 critérios de verificação cobertos</div>
+</footer>
+
+</body>
+</html>

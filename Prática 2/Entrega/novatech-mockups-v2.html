@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech Assistant — Mockups v2.0</title>
+<style>
+:root {
+  --navy:#0F1F3D; --navy-mid:#1A3260; --blue:#1E5BAD; --blue-lt:#2E74CC;
+  --teal:#0D8C7A; --teal-lt:#14B09A;
+  --amber:#D97706; --amber-lt:#FEF3C7;
+  --red:#C0392B; --red-lt:#FDECEA;
+  --green:#166534; --green-lt:#DCFCE7;
+  --gray-900:#111827; --gray-700:#374151; --gray-500:#6B7280;
+  --gray-300:#D1D5DB; --gray-100:#F3F4F6; --gray-50:#F9FAFB; --white:#FFFFFF;
+  --font-sans:'Segoe UI',system-ui,-apple-system,sans-serif;
+  --radius:8px; --shadow:0 4px 12px rgba(0,0,0,.10); --shadow-lg:0 8px 32px rgba(0,0,0,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:#E8EDF4;color:var(--gray-900);font-size:14px;line-height:1.5}
+
+/* COVER */
+.cover{background:var(--navy);color:var(--white);padding:56px 48px;display:flex;flex-direction:column;gap:10px}
+.cover-eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-lt)}
+.cover h1{font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.cover-meta{display:flex;gap:20px;margin-top:8px;font-size:12px;color:rgba(255,255,255,.5)}
+.changelog{margin-top:16px;background:rgba(255,255,255,.06);border-left:3px solid var(--teal-lt);padding:12px 16px;border-radius:4px;font-size:12px;color:rgba(255,255,255,.75);line-height:1.6}
+.changelog strong{color:var(--teal-lt)}
+.cover-screens{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.screen-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 14px;font-size:12px;color:rgba(255,255,255,.8)}
+.amb-badge{background:rgba(205,133,63,.2);border:1px solid rgba(205,133,63,.4);border-radius:20px;padding:4px 14px;font-size:11px;color:#FCD34D}
+
+/* SECTION */
+.section-label{padding:32px 48px 16px;display:flex;align-items:flex-start;gap:14px}
+.section-label::before{content:'';width:4px;height:28px;background:var(--teal);border-radius:2px;flex-shrink:0;margin-top:2px}
+.section-label h2{font-size:19px;font-weight:700;color:var(--navy)}
+.section-label p{font-size:12px;color:var(--gray-500);margin-top:2px}
+.section-label .amb-tag{display:inline-flex;align-items:center;gap:4px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:4px}
+
+/* SCREEN WRAPPER */
+.screen-wrapper{padding:0 48px 40px}
+.screen-frame{background:var(--white);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden;max-width:960px}
+.title-bar{background:var(--navy);color:var(--white);padding:9px 18px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.dots{display:flex;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot-r{background:#FF5F57}.dot-y{background:#FFBD2E}.dot-g{background:#28CA42}
+.url-bar{flex:1;max-width:320px;margin:0 16px;background:rgba(255,255,255,.12);border-radius:4px;padding:3px 10px;font-size:11px;color:rgba(255,255,255,.7)}
+
+/* TEAMS SHELL */
+.teams{display:flex;height:580px}
+.sidebar{width:56px;background:var(--navy-mid);display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;flex-shrink:0}
+.sicon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:rgba(255,255,255,.55)}
+.sicon.active{background:rgba(255,255,255,.15);color:var(--white)}
+.nav{width:220px;background:#F0F2F5;border-right:1px solid var(--gray-300);flex-shrink:0}
+.nav-header{padding:14px 16px 10px;font-size:13px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--gray-300)}
+.nav-item{padding:9px 16px;font-size:13px;color:var(--gray-700);cursor:pointer;display:flex;align-items:center;gap:8px}
+.nav-item.active{background:var(--blue);color:var(--white)}
+.chat-area{flex:1;display:flex;flex-direction:column;background:var(--white);overflow:hidden}
+
+/* CHAT */
+.chat-header{padding:12px 20px;border-bottom:1px solid var(--gray-300);display:flex;align-items:center;gap:10px}
+.avatar-bot{width:32px;height:32px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--white);flex-shrink:0}
+.hinfo strong{font-size:13px;display:block;color:var(--navy)}
+.hinfo span{font-size:11px;color:var(--teal)}
+.messages{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.msg-row{display:flex;gap:10px;align-items:flex-start}
+.msg-row.user{flex-direction:row-reverse}
+.mavatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:var(--white)}
+.mavatar.bot{background:var(--teal);font-size:14px}
+.mavatar.ua{background:var(--blue)}
+.bubble{max-width:68%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.55}
+.bubble.user{background:var(--blue);color:var(--white);border-bottom-right-radius:4px}
+.bubble.bot{background:var(--gray-50);border:1px solid var(--gray-300);color:var(--gray-900);border-bottom-left-radius:4px}
+.mtime{font-size:10px;color:var(--gray-500);margin-top:3px;padding:0 4px}
+.msg-row.user .mtime{text-align:right}
+
+/* ANSWER CARD */
+.answer-card{background:var(--white);border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;font-size:13px;max-width:560px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.answer-body{padding:13px 16px;line-height:1.6;color:var(--gray-900)}
+.answer-body strong{color:var(--navy)}
+.cpill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px}
+.cp-high{background:var(--green-lt);color:var(--green)}
+.cp-mod{background:var(--amber-lt);color:var(--amber)}
+.cp-low{background:var(--red-lt);color:var(--red)}
+
+/* SOURCE BLOCK */
+.src-block{background:var(--gray-50);border-top:1px solid var(--gray-300);padding:9px 16px}
+.src-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-500);margin-bottom:5px}
+.src-row{display:flex;flex-wrap:wrap;gap:5px}
+.src-chip{display:flex;align-items:center;gap:4px;background:var(--white);border:1px solid var(--gray-300);border-radius:6px;padding:3px 8px;font-size:11px;color:var(--blue);font-weight:500}
+
+/* ALERTS */
+.alert{display:flex;align-items:flex-start;gap:8px;padding:8px 16px;font-size:12px;line-height:1.4}
+.alert.conflict{background:#FFFBEB;border-top:1px solid #F59E0B;color:#92400E}
+.alert.informal{background:var(--red-lt);border-top:1px solid #FECACA;color:#991B1B}
+.alert.stale{background:#EFF6FF;border-top:1px solid #BFDBFE;color:#1E40AF}
+.aicon{font-size:14px;flex-shrink:0;margin-top:1px}
+
+/* FEEDBACK ROW */
+.fb-row{display:flex;align-items:center;gap:6px;padding:8px 16px;border-top:1px solid var(--gray-100);background:var(--gray-50)}
+.fb-row span{font-size:11px;color:var(--gray-500);margin-right:4px}
+.fb-btn{padding:3px 10px;border-radius:6px;border:1px solid var(--gray-300);background:var(--white);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:4px;color:var(--gray-700)}
+.fb-confirm{font-size:11px;color:var(--teal);font-weight:600;display:none;margin-left:auto}
+
+/* CHAT INPUT */
+.input-area{padding:12px 20px;border-top:1px solid var(--gray-300);display:flex;gap:10px;align-items:flex-end}
+.cinput{flex:1;background:var(--gray-50);border:1px solid var(--gray-300);border-radius:8px;padding:9px 14px;font-size:13px;font-family:var(--font-sans);resize:none;outline:none;color:var(--gray-700);min-height:38px}
+.cinput:disabled{opacity:.45;cursor:not-allowed}
+.send-btn{width:36px;height:36px;background:var(--blue);border:none;border-radius:8px;color:var(--white);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.send-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ONBOARDING */
+.onboarding{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:var(--white);border-radius:10px;padding:18px;max-width:480px}
+.onboarding h3{font-size:15px;font-weight:700;margin-bottom:7px}
+.onboarding p{font-size:12px;color:rgba(255,255,255,.75);line-height:1.55;margin-bottom:10px}
+.ob-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.ob-chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,.85);cursor:pointer}
+.ok-btn{background:var(--teal);color:var(--white);border:none;border-radius:6px;padding:7px 20px;font-size:12px;font-weight:600;cursor:pointer}
+.chip-note{font-size:10px;color:rgba(255,255,255,.45);margin-top:6px}
+
+/* CONFLICT */
+.conflict-hdr{background:#FFFBEB;border-bottom:1px solid #FDE68A;padding:8px 16px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:.06em}
+.doc-compare{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-200)}
+.doc-col{padding:11px 15px;font-size:12px}
+.doc-col:first-child{border-right:1px solid var(--gray-300)}
+.dch{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-500);margin-bottom:5px}
+.doc-col.win .dch{color:var(--teal)}
+.doc-col.lose .dch{color:var(--gray-400)}
+.doc-col.lose{opacity:.6}
+.dval{font-size:20px;font-weight:700;color:var(--navy)}
+.doc-col.lose .dval{text-decoration:line-through;color:var(--gray-500)}
+.dreason{font-size:11px;color:var(--gray-500);margin-top:3px}
+.win-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;background:var(--teal-lt);color:var(--white);padding:2px 7px;border-radius:10px;margin-top:5px}
+
+/* ABSENCE */
+.absence{background:var(--gray-50);border:1px solid var(--gray-300);border-left:3px solid var(--amber);border-radius:10px;padding:13px 16px;font-size:13px;max-width:520px}
+.absence-title{font-weight:700;color:var(--gray-900);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.absence-body{color:var(--gray-700);line-height:1.55}
+.next-step{margin-top:9px;padding:7px 11px;background:var(--white);border-radius:6px;border:1px solid var(--gray-300);font-size:12px;color:var(--blue);display:flex;align-items:center;gap:6px}
+.gap-btn{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding:5px 12px;background:var(--white);border:1px solid var(--gray-300);border-radius:20px;font-size:11px;color:var(--gray-700);cursor:pointer}
+
+/* AMBIGUOUS */
+.amb-card{background:var(--white);border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;max-width:500px;font-size:13px}
+.amb-hdr{background:#EFF6FF;border-bottom:1px solid #BFDBFE;padding:9px 16px;font-size:12px;font-weight:600;color:#1E40AF;display:flex;align-items:center;gap:6px}
+.amb-body{padding:11px 16px;color:var(--gray-700);font-size:12px}
+.clarify-opts{display:flex;flex-direction:column;gap:5px;padding:0 16px 13px}
+.copt{padding:8px 12px;border:1px solid var(--gray-300);border-radius:8px;cursor:pointer;font-size:12px;color:var(--blue);background:var(--white);text-align:left;display:flex;align-items:center;gap:8px}
+.copt:hover{background:#EFF6FF;border-color:var(--blue-lt)}
+.copt::before{content:'→';font-size:13px;color:var(--gray-400);flex-shrink:0}
+.copt-src{font-size:10px;color:var(--gray-400);margin-left:auto}
+.amb-note{padding:7px 16px;font-size:11px;color:var(--gray-500);border-top:1px solid var(--gray-100);font-style:italic}
+
+/* MULTI-DOMAIN */
+.multi{border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;max-width:560px;font-size:13px}
+.msec{padding:11px 15px;border-bottom:1px solid var(--gray-100)}
+.msec:last-child{border-bottom:none}
+.dtag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:4px;margin-bottom:6px}
+.dt-dev{background:#EDE9FE;color:#5B21B6}
+.dt-fre{background:#DBEAFE;color:#1D4ED8}
+.dt-sla{background:#D1FAE5;color:#065F46}
+.dt-abs{background:var(--gray-100);color:var(--gray-500)}
+.mbody{color:var(--gray-700);line-height:1.55}
+
+/* STREAMING */
+.stream-indicator{display:flex;gap:5px;align-items:center;padding:9px 13px;background:var(--gray-50);border:1px solid var(--gray-300);border-radius:12px;border-bottom-left-radius:4px;width:fit-content}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--gray-400)}
+.slabel{font-size:11px;color:var(--gray-500);margin-left:4px}
+.ttft-timer{display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:2px 8px;font-size:11px;color:#1E40AF;margin-left:8px;font-weight:600}
+
+/* STREAM PARTIAL */
+.partial-response{background:var(--gray-50);border:1px solid var(--gray-300);border-radius:10px;border-bottom-left-radius:4px;padding:12px 14px;max-width:520px;font-size:13px;color:var(--gray-700);line-height:1.6}
+.cursor-blink{display:inline-block;width:2px;height:14px;background:var(--blue);border-radius:1px;margin-left:2px;vertical-align:middle}
+
+/* ANNOTATIONS */
+.ann-grid{display:flex;gap:28px;padding:0 48px 40px;flex-wrap:wrap}
+.ann-item{display:flex;gap:10px;align-items:flex-start;flex:1;min-width:220px;max-width:280px}
+.ann-n{width:22px;height:22px;background:var(--teal);color:var(--white);border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ann-t strong{display:block;font-size:12px;color:var(--navy)}
+.ann-t span{font-size:11px;color:var(--gray-500);line-height:1.4}
+.ann-amb{background:#FEF3C7;border-radius:4px;padding:3px 6px;font-size:10px;color:#92400E;font-weight:600;display:inline-block;margin-top:3px}
+
+/* DIVIDER & FOOTER */
+.divider{height:1px;background:var(--gray-300);margin:0 48px}
+footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--gray-500);border-top:1px solid var(--gray-300);background:var(--white)}
+footer strong{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">UX/UI · Mockups v2.0 · Jun 2026 · Revisados pós-análise Tech Lead</div>
+  <h1>NovaTech Assistant<br>Interface de Consulta</h1>
+  <div class="cover-meta">
+    <span>Baseado em requirements.md v2.0 · Query Endpoint</span>
+    <span>Microsoft Teams + Painel Web</span>
+    <span>DB1 × NovaTech</span>
+  </div>
+  <div class="changelog">
+    <strong>Alterações v2.0:</strong> AMB-02 — S5 reformulado para cobrir ambiguidade semântica (não apenas de score) com nota explicativa; AMB-08 — alerta de conflito em S3 removida referência ao estado no SharePoint; AMB-09 — S7 agora mostra streaming progressivo com TTFT separado de resposta completa; AMB-12 — chips de onboarding documentados com nota "não envia automaticamente"; AMB-15 — terminologia "tier Gold/Silver/Standard" padronizada; AMB-16 — input desabilitado durante streaming documentado em S7.
+  </div>
+  <div class="cover-screens">
+    <span class="screen-badge">S1 · Onboarding</span>
+    <span class="screen-badge">S2 · Resposta com fonte</span>
+    <span class="screen-badge">S3 · Conflito documental</span>
+    <span class="screen-badge">S4 · Ausência de resposta</span>
+    <span class="screen-badge">S5 · Pergunta ambígua</span>
+    <span class="screen-badge">S6 · Multi-domínio</span>
+    <span class="screen-badge">S7 · Streaming</span>
+  </div>
+</div>
+
+<!-- S1 ONBOARDING -->
+<div class="section-label">
+  <div>
+    <h2>S1 — Onboarding · Primeira sessão</h2>
+    <p>VC-15 · Spec Seção 8.2 · Resolve AMB-12: chips documentados como "preenche campo, não envia"</p>
+    <span class="amb-tag">AMB-12 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar">
+        <div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div>
+      </div>
+      <div class="nav">
+        <div class="nav-header">Assistente NovaTech</div>
+        <div class="nav-item active"><span>🤖</span> Nova consulta</div>
+        <div class="nav-item"><span>🕐</span> Histórico</div>
+      </div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online · Base atualizada hoje 08:14</span></div></div>
+        <div class="messages">
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="onboarding">
+                <h3>👋 Olá, Carla! Bem-vinda ao Assistente NovaTech.</h3>
+                <p>Respondo perguntas sobre documentação oficial em menos de 30 segundos. O primeiro conteúdo aparece em menos de 3 segundos. Toda resposta indica a fonte e o nível de confiança.</p>
+                <p><strong style="color:rgba(255,255,255,.9)">O que posso responder:</strong></p>
+                <div class="ob-chips">
+                  <span class="ob-chip">📦 Prazos de entrega</span>
+                  <span class="ob-chip">🚚 Regras de frete</span>
+                  <span class="ob-chip">↩️ Política de devolução</span>
+                  <span class="ob-chip">📋 SLAs por tier</span>
+                </div>
+                <div class="chip-note">💡 Clique em um chip para inserir uma pergunta de exemplo — você ainda precisará enviar.</div>
+                <p style="margin:10px 0"><strong style="color:rgba(255,255,255,.9)">Fora do escopo (fase 1):</strong> seguro de carga, sinistros, negociações individuais e contratos de clientes.</p>
+                <button class="ok-btn">Entendido, começar →</button>
+              </div>
+              <div class="mtime">09:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Chips: preenche, não envia</strong><span>Nota explícita "você ainda precisará enviar" elimina comportamento inesperado.</span><span class="ann-amb">AMB-12</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Fora do escopo visível</strong><span>Fase 1: seguro, sinistros, negociações individuais — atendente sabe antes de usar.</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>SLA de TTFT comunicado</strong><span>"Primeiro conteúdo em menos de 3s" — diferente do SLA de resposta completa (30s).</span><span class="ann-amb">AMB-09</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S2 RESPOSTA COM FONTE -->
+<div class="section-label">
+  <div>
+    <h2>S2 — Resposta com fonte · Fluxo principal + Coleta de feedback</h2>
+    <p>VC-01 · VC-13 · Resolve AMB-05: endpoint coleta feedback (emite evento); não processa nem roteia</p>
+    <span class="amb-tag">AMB-05 resolvido</span>
+    <span class="amb-tag" style="margin-left:4px">AMB-15 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online</span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Qual o prazo para o cliente solicitar devolução de mercadoria?</div><div class="mtime">09:07</div></div></div>
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="answer-card">
+                <div class="answer-body">O cliente pode solicitar a devolução em até <strong>7 dias úteis</strong> após a data de recebimento confirmada no tracking. A contagem exclui sábados, domingos e feriados nacionais.<br><br>Após esse prazo, a solicitação não é elegível pelo processo padrão — encaminhar ao Comercial.<br><br><span class="cpill cp-high">✓ Alta confiança</span></div>
+                <div class="src-block">
+                  <div class="src-label">Fonte</div>
+                  <div class="src-row">
+                    <div class="src-chip">📄 POL-001 · v3.1 · Seção 3.1</div>
+                    <div class="src-chip" style="color:var(--gray-500)">🗓 Atualizado 15/01/2024</div>
+                  </div>
+                </div>
+                <div class="fb-row">
+                  <span>Esta resposta foi útil?</span>
+                  <button class="fb-btn" onclick="this.textContent='✅ Registrado';this.style.background='#DCFCE7';this.style.color='#166534'">✅ Sim</button>
+                  <button class="fb-btn">⚠️ Incompleta</button>
+                  <button class="fb-btn">❌ Incorreta</button>
+                </div>
+              </div>
+              <div class="mtime">09:07 · TTFT 2,1 s · completa 4,3 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Dois timers exibidos</strong><span>"TTFT 2,1s · completa 4,3s" — dois SLAs distintos conforme AMB-09 / requirements v2.</span><span class="ann-amb">AMB-09</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Botão ativo ao clicar</strong><span>Clicar "Sim" muda para "✅ Registrado" — confirmação visual de coleta. Evento emitido para BC-06.</span><span class="ann-amb">AMB-05</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>Versão do assistente ausente</strong><span>Não exibida ao atendente — apenas nos logs de BC-06 (VC-11, AMB-14).</span><span class="ann-amb">AMB-14</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S3 CONFLITO -->
+<div class="section-label">
+  <div>
+    <h2>S3 — Conflito documental · Alerta corrigido</h2>
+    <p>VC-03 · Resolve AMB-08: alerta não menciona estado no SharePoint — apenas que existe documento divergente na base</p>
+    <span class="amb-tag">AMB-08 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online</span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Qual o multiplicador regional para carga especial com destino ao Norte?</div><div class="mtime">09:12</div></div></div>
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="answer-card">
+                <div class="conflict-hdr">⚠️ Versões conflitantes encontradas na base</div>
+                <div class="answer-body">O multiplicador regional vigente para a região <strong>Norte</strong> é <strong>1,8</strong>, conforme a versão mais recente da PROC-042.<br><br><span class="cpill cp-mod">⚠ Confiança moderada</span></div>
+                <div class="doc-compare">
+                  <div class="doc-col win"><div class="dch">✓ Versão utilizada</div><div class="dval">1,8</div><div class="dreason">PROC-042-v2 · Nov/2023</div><span class="win-badge">✓ Mais recente</span></div>
+                  <div class="doc-col lose"><div class="dch">Versão desconsiderada</div><div class="dval">1,6</div><div class="dreason">PROC-042 v1.0 · Mar/2023</div></div>
+                </div>
+                <div class="alert conflict">
+                  <span class="aicon">⚠️</span>
+                  <div>Existe outro documento na base com valor diferente para este tema: <strong>PROC-042 v1.0, Seção 2.1</strong>. A resposta acima usa <strong>PROC-042-v2</strong> por ter data de atualização mais recente. Confirme com o supervisor se o contrato do cliente especifica versão diferente.</div>
+                </div>
+                <div class="src-block">
+                  <div class="src-label">Fonte utilizada</div>
+                  <div class="src-row"><div class="src-chip">📄 PROC-042-v2 · v2.0 · Seção 2.1</div><div class="src-chip" style="color:var(--gray-500)">🗓 10/11/2023</div></div>
+                </div>
+                <div class="fb-row"><span>Esta resposta foi útil?</span><button class="fb-btn">✅ Sim</button><button class="fb-btn">⚠️ Incompleta</button><button class="fb-btn">❌ Incorreta</button></div>
+              </div>
+              <div class="mtime">09:12 · TTFT 2,8 s · completa 5,1 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Alerta sem referência ao SharePoint</strong><span>"Existe outro documento na base" — o endpoint não sabe o estado no SharePoint. Corrigido de v1.</span><span class="ann-amb">AMB-08</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Justificativa de desempate explícita</strong><span>"...por ter data de atualização mais recente" — atendente entende o critério sem consultar ADR.</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>Moderada por conflito resolvido</strong><span>Critério da tabela: Nível 1 com conflito resolvido = Moderada (não Alta). Consistente com AMB-04.</span><span class="ann-amb">AMB-04</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S4 AUSÊNCIA -->
+<div class="section-label">
+  <div><h2>S4 — Ausência de resposta · Tema não coberto</h2><p>VC-04 · VC-05 · Comportamento mantido da v1 — sem alterações necessárias</p></div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online</span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Qual o percentual de seguro de carga para mercadorias refrigeradas?</div><div class="mtime">09:18</div></div></div>
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="absence">
+                <div class="absence-title">🔍 Informação não disponível na base</div>
+                <div class="absence-body"><strong>Tema:</strong> Seguro de carga — mercadorias refrigeradas<br><strong>Motivo:</strong> Nenhum chunk com score ≥ 0,72 foi encontrado para este tema. Não existe normativo formal indexado sobre seguro de carga. O FAQ menciona percentuais, mas é documento informal não validado pelo Compliance.<br><br>O assistente não fornece valores sem respaldo normativo.</div>
+                <div class="next-step">📞 Consulte a área <strong>Comercial</strong> para os percentuais vigentes.</div>
+                <button class="gap-btn">+ Registrar como lacuna da base</button>
+              </div>
+              <div class="mtime">09:18 · TTFT 1,4 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Threshold explicitado no motivo</strong><span>"Nenhum chunk com score ≥ 0,72" — o atendente entende que não é falha do sistema, é ausência de documento. Alinha com AMB-03.</span><span class="ann-amb">AMB-03</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Ausência de conteúdo factual</strong><span>Zero estimativas ou inferências — o assistente não menciona os 0,3% do FAQ (informal não validado).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S5 AMBIGUIDADE — REFORMULADO -->
+<div class="section-label">
+  <div>
+    <h2>S5 — Pergunta ambígua · Ambiguidade semântica (reformulado)</h2>
+    <p>VC-07 · Resolve AMB-02: distingue ambiguidade semântica (detectada em BC-03) de ambiguidade de score (detectada em BC-02). Nota explicativa adicionada.</p>
+    <span class="amb-tag">AMB-02 resolvido</span>
+    <span class="amb-tag" style="margin-left:4px">AMB-01 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online</span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Qual o prazo?</div><div class="mtime">09:22</div></div></div>
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="amb-card">
+                <div class="amb-hdr">🔵 Pergunta com mais de uma interpretação possível</div>
+                <div class="amb-body">A palavra "prazo" aparece em documentos de temas distintos na base. Qual dos seguintes você está consultando?</div>
+                <div class="clarify-opts">
+                  <button class="copt">Prazo para solicitar devolução após entrega <span class="copt-src">POL-001</span></button>
+                  <button class="copt">Prazo adicional de entrega para frete especial (acima de 500 kg) <span class="copt-src">PROC-042-v2</span></button>
+                  <button class="copt">SLA de resposta ou resolução por tier de cliente <span class="copt-src">SLA-2024</span></button>
+                  <button class="copt">Prazo de triagem, coleta reversa ou reembolso em devolução <span class="copt-src">POL-001</span></button>
+                </div>
+                <div class="amb-note">ℹ️ Detecção: ambiguidade semântica (BC-03 detectou "prazo" em múltiplos domínios). Nenhum conteúdo factual é fornecido antes de sua escolha.</div>
+              </div>
+              <div class="mtime">09:22 · TTFT 1,6 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Selecione uma opção acima ou refine sua pergunta..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Nota de detecção visível</strong><span>"Detecção: ambiguidade semântica (BC-03)" — transparência sobre qual mecanismo ativou a clarificação. Resolve a confusão da v1 onde BC-02 era responsável.</span><span class="ann-amb">AMB-01 · AMB-02</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Fonte indicada antes da resposta</strong><span>Atendente sabe de onde virá cada resposta antes de clicar — reduz abandono por incerteza.</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>Zero conteúdo factual antes da escolha</strong><span>O assistente não chuta o prazo mais provável. Guardrail G1 aplicado (VC-07).</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S6 MULTI-DOMÍNIO -->
+<div class="section-label">
+  <div>
+    <h2>S6 — Pergunta multi-domínio · tier padronizado</h2>
+    <p>VC-06 · Resolve AMB-15: "tier Gold/Silver/Standard" consistente em toda a interface</p>
+    <span class="amb-tag">AMB-15 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>● Online</span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Cliente tier Gold quer saber o prazo de devolução, o multiplicador de frete para o Sudeste e o percentual do seguro de carga.</div><div class="mtime">09:31</div></div></div>
+          <div class="msg-row">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div class="multi">
+                <div class="msec">
+                  <span class="dtag dt-dev">↩️ Política de Devolução</span>
+                  <div class="mbody">Prazo para solicitação: <strong>7 dias úteis</strong> após o recebimento confirmado no tracking, excluindo sábados, domingos e feriados.</div>
+                  <div style="margin-top:7px"><div class="src-row"><div class="src-chip">📄 POL-001 · v3.1 · Seção 3.1</div><span class="cpill cp-high" style="font-size:10px">✓ Alta</span></div></div>
+                </div>
+                <div class="msec">
+                  <span class="dtag dt-fre">🚚 Logística de Frete</span>
+                  <div class="mbody">Multiplicador regional para o <strong>Sudeste</strong>: <strong>1,1</strong> (cargas acima de 500 kg).</div>
+                  <div style="margin-top:7px"><div class="src-row"><div class="src-chip">📄 PROC-042-v2 · v2.0 · Seção 2.1</div><span class="cpill cp-mod" style="font-size:10px">⚠ Moderada</span></div></div>
+                  <div class="alert conflict" style="margin-top:7px;border-radius:6px;border:1px solid #FDE68A">
+                    <span class="aicon">⚠️</span><span>Existe outro documento na base com valor diferente: <strong>PROC-042 v1.0, Seção 2.1</strong> (valor: 1,0). A resposta usa PROC-042-v2 por ser mais recente.</span>
+                  </div>
+                </div>
+                <div class="msec">
+                  <span class="dtag dt-abs">🔍 Seguro de Carga</span>
+                  <div class="mbody" style="color:var(--gray-500)">Informação não disponível na base documental. Nenhum normativo formal sobre seguro de carga está indexado. Consulte o <strong style="color:var(--gray-700)">Comercial</strong>.</div>
+                </div>
+                <div class="fb-row"><span>Esta resposta foi útil?</span><button class="fb-btn">✅ Sim</button><button class="fb-btn">⚠️ Incompleta</button><button class="fb-btn">❌ Incorreta</button></div>
+              </div>
+              <div class="mtime">09:31 · TTFT 3,0 s · completa 6,8 s</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area"><textarea class="cinput" rows="1" placeholder="Pergunte sobre prazos, frete, devolução ou SLAs..."></textarea><button class="send-btn">➤</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>"tier Gold" padronizado</strong><span>Pergunta do atendente e tags usam "tier Gold" — minúsculo + valor capitalizado. Consistente com glossário v2.</span><span class="ann-amb">AMB-15</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>Alerta de conflito inline corrigido</strong><span>Não menciona SharePoint — apenas identifica o documento divergente na base (AMB-08 aplicado também aqui).</span><span class="ann-amb">AMB-08</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>Dois SLAs no timestamp</strong><span>TTFT 3,0s / completa 6,8s — resposta multi-partes é mais longa, TTFT ainda dentro dos 3s.</span><span class="ann-amb">AMB-09</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- S7 STREAMING -->
+<div class="section-label">
+  <div>
+    <h2>S7 — Streaming · Resposta progressiva e input desabilitado</h2>
+    <p>VC-08 · VC-14 · Resolve AMB-09 (streaming explícito com TTFT) e AMB-16 (input desabilitado documentado)</p>
+    <span class="amb-tag">AMB-09 resolvido</span>
+    <span class="amb-tag" style="margin-left:4px">AMB-16 resolvido</span>
+  </div>
+</div>
+<div class="screen-wrapper">
+  <div class="screen-frame">
+    <div class="title-bar"><div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div><div class="url-bar">teams.microsoft.com · NovaTech Assistant</div></div>
+    <div class="teams">
+      <div class="sidebar"><div class="sicon">🏠</div><div class="sicon">💬</div><div class="sicon active">🤖</div><div class="sicon">📋</div><div class="sicon" style="margin-top:auto">⚙️</div></div>
+      <div class="nav"><div class="nav-header">Assistente NovaTech</div><div class="nav-item active"><span>🤖</span> Nova consulta</div><div class="nav-item"><span>🕐</span> Histórico</div></div>
+      <div class="chat-area">
+        <div class="chat-header"><div class="avatar-bot">🤖</div><div class="hinfo"><strong>Assistente NovaTech</strong><span>⏳ Aguardando primeiro token... <span class="ttft-timer">⏱ 1,8 s</span></span></div></div>
+        <div class="messages">
+          <div class="msg-row user"><div class="mavatar ua">CA</div><div><div class="bubble user">Quais são as penalidades para descumprimento de SLA de cliente tier Silver?</div><div class="mtime">09:35</div></div></div>
+
+          <!-- Estado A: aguardando TTFT -->
+          <div class="msg-row" style="margin-bottom:4px">
+            <div class="mavatar bot">🤖</div>
+            <div>
+              <div style="font-size:11px;color:var(--gray-500);margin-bottom:4px">Estado A — antes do TTFT (aguardando primeiro token):</div>
+              <div class="stream-indicator">
+                <div class="sdot"></div><div class="sdot"></div><div class="sdot"></div>
+                <span class="slabel">Consultando SLA-2024...</span>
+                <span class="ttft-timer">⏱ 1,8 s</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estado B: streaming em progresso -->
+          <div class="msg-row">
+            <div class="mavatar bot" style="opacity:0">🤖</div>
+            <div>
+              <div style="font-size:11px;color:var(--gray-500);margin-bottom:4px">Estado B — streaming em progresso (TTFT atingido, resposta chegando):</div>
+              <div class="partial-response">
+                Para clientes <strong>tier Silver</strong>, as penalidades por descumprimento de SLA são escalonadas mensalmente:<br><br>
+                • Primeira violação no mês: registro interno, sem impacto contratual.<br>
+                • Segunda violação: crédito de 5% sobre o valor do frete do chamado afetado.<br>
+                • Terceira violação ou mais: crédito de 10% + reunião obrigatória com<span class="cursor-blink"></span>
+              </div>
+              <div class="mtime" style="color:var(--blue)">TTFT: 2,4 s ✓ · gerando resposta...</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-area">
+          <textarea class="cinput" rows="1" placeholder="Aguardando resposta completa..." disabled></textarea>
+          <button class="send-btn" disabled>➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ann-grid">
+  <div class="ann-item"><div class="ann-n">1</div><div class="ann-t"><strong>Dois estados distintos</strong><span>Estado A (aguardando TTFT): dots animados + timer. Estado B (streaming): tokens visíveis + cursor + timer de TTFT já confirmado.</span><span class="ann-amb">AMB-09</span></div></div>
+  <div class="ann-item"><div class="ann-n">2</div><div class="ann-t"><strong>TTFT confirmado em verde</strong><span>"TTFT: 2,4s ✓" aparece quando primeiro token chega — SLA de 3s monitorado separadamente do SLA de 30s da resposta completa.</span><span class="ann-amb">AMB-09</span></div></div>
+  <div class="ann-item"><div class="ann-n">3</div><div class="ann-t"><strong>Input desabilitado com rótulo explícito</strong><span>"Aguardando resposta completa..." — placeholder comunica o motivo do bloqueio. Reabilitado automaticamente ao receber último token.</span><span class="ann-amb">AMB-16</span></div></div>
+  <div class="ann-item"><div class="ann-n">4</div><div class="ann-t"><strong>"tier Silver" padronizado</strong><span>Resposta em streaming já usa terminologia canônica "tier Silver" (AMB-15).</span><span class="ann-amb">AMB-15</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+  <div><strong>NovaTech Assistant</strong> — Mockups v2.0 · pós-revisão técnica</div>
+  <div>7 telas · 15 VCs cobertos · 12 AMBs resolvidos</div>
+  <div>DB1 × NovaTech · Jun 2026</div>
+</footer>
+</body>
+</html>
