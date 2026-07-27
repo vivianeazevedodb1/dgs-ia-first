@@ -1,0 +1,73 @@
+Resposta 1
+Classificação: Parcialmente correta
+
+O prazo de 7 dias úteis está correto e corresponde literalmente à POL-001 Seção 3.1. O procedimento de abrir chamado no portal e anexar fotos também está correto — POL-001 Seção 3.3 descreve exatamente esses passos.
+
+O problema está na fonte citada. A resposta cita a Seção 3.2, que trata das exceções ao prazo geral (cargas perigosas, refrigeradas, lacre violado) — não do prazo geral em si. O prazo de 7 dias úteis está na Seção 3.1. A seção errada foi citada para a informação certa.
+
+Há ainda uma omissão relevante: a Seção 3.3 exige que o chamado inclua também o número do CT-e e no mínimo 3 fotos com especificações (embalagem externa, etiqueta e conteúdo). A resposta simplificou para "fotos" sem o detalhamento exigido pelo documento.
+
+A confiança Alta é justificável para o conteúdo factual, mas a citação errada de seção compromete a rastreabilidade — que é um requisito obrigatório do produto.
+
+Resposta 2
+Classificação: Parcialmente correta
+
+O valor de 48h está presente no SLA-2024. A tabela da Seção 2 confirma: tempo de resolução para chamados gerais do tier Silver é de até 48 horas úteis. O número está correto.
+
+O problema é a omissão de contexto crítico que altera significativamente a interpretação do dado. A resposta não informa:
+
+Primeiro, que "48h" se refere ao SLA de chamados gerais, em horas úteis. Para incidentes críticos, o SLA do tier Silver é de apenas 8 horas — menos de seis vezes o prazo geral. Um atendente que receba essa resposta sem essa distinção pode informar ao cliente um prazo seis vezes maior do que o aplicável em situações críticas.
+
+Segundo, que as horas são horas úteis (a contagem pausa fora do horário comercial, 08h–18h, dias úteis), o que é relevante para a expectativa do cliente.
+
+A fonte citada está correta — SLA-2024 é o documento adequado — mas sem a indicação da seção, a rastreabilidade está incompleta. A confiança Alta seria adequada para uma resposta completa; para uma resposta que omite o SLA crítico, é excessiva.
+
+Resposta 3
+
+Classificação: Parcialmente correta
+
+A parte central está correta: a POL-001 Seção 3.2 proíbe explicitamente a devolução de cargas perigosas classes 1 a 6 pelo processo padrão, e a classe 3 (líquidos inflamáveis) está incluída nessa lista. Fonte e seção estão corretas. Confiança Alta é adequada — trata-se de normativo vigente.
+
+O problema é na orientação de encaminhamento. A POL-001 Seção 3.2 define explicitamente o canal correto: o cliente deve contatar o setor de Gestão de Riscos pelo ramal 4500 para tratamento individual. A resposta substituiu essa orientação formal por "escalar para o supervisor" — que é um encaminhamento interno e genérico, não o procedimento documentado.
+
+Esta distinção importa: o atendente que segue a resposta avaliada orienta o cliente de forma incompleta, potencialmente deixando-o sem o contato correto para resolver a situação. O ramal 4500 está formalizado em documento normativo e pode ser citado diretamente.
+
+Resposta 4
+
+Classificação: Incorreta
+
+Esta é a resposta com os problemas mais graves da amostra.
+
+Ausência de fonte com confiança Alta: A resposta não cita nenhum documento. Declarar confiança Alta sem fonte é uma violação direta dos guardrails do produto e impossibilita qualquer auditoria. Confiança Alta sem fonte é, por definição, incoerente.
+
+Ausência de cobertura normativa para o tema: O Anexo A documenta explicitamente nas suas notas de gaps que "não existe documento formal (POL ou PROC) sobre tratamento de carga danificada em trânsito." A única referência disponível é o FAQ-Atendimento item 38 — documento informal sem responsável, sem versão controlada e sem validação por Compliance ou Operações.
+
+Conteúdo divergente até da fonte informal: O FAQ item 38 fala em "registro em até 48h após o recebimento, com fotos e laudo", encaminhamento ao Jurídico via e-mail, e reembolso integral "se comprovada responsabilidade." A resposta avaliada usa o termo "negligência da transportadora" — que não aparece em nenhum documento do Anexo A — e omite o prazo de 48h, o canal de encaminhamento ao Jurídico e o requisito do CT-e. Mesmo comparada ao FAQ informal, a resposta inventou um critério (negligência) e omitiu etapas do processo descrito.
+
+Resposta 5
+Classificação: Correta
+
+Esta é a única resposta da amostra que segue integralmente os guardrails do produto.
+
+O SLA-2024 Seção 1 afirma textualmente que "não existem outros tiers além dos três listados" e que o tier Enterprise não consta como denominação válida. A resposta não inventou um SLA para um tier inexistente, não confundiu Enterprise com Gold ou com qualquer outro tier documentado, e declarou corretamente os três tiers válidos.
+
+A ausência de fonte citada é aceitável neste caso — a própria declaração de ausência não requer fonte de documento, mas idealmente a afirmação "os tiers documentados são Gold, Silver e Standard" poderia ter citado SLA-2024 Seção 1 para rastreabilidade completa.
+
+A confiança Baixa é adequada: reflete a ausência de correspondência entre o termo consultado e a documentação, sinalizando que o atendente precisa validar com o cliente qual é o tier real antes de prosseguir.
+
+A recomendação de escalada ao supervisor, neste contexto, é boa prática — permite que o caso seja investigado sem comprometer o atendente com uma informação incorreta.
+
+Resposta 6
+Classificação: Incorreta
+
+Esta resposta concentra dois problemas críticos que, em conjunto, constituem uma violação grave dos guardrails do produto.
+
+Uso de FAQ informal como fonte normativa com confiança Alta: O FAQ-Atendimento é um documento informal sem responsável, sem versão controlada e classificado como "NÃO validado por Compliance ou Operações." O próprio Anexo A documenta isso na contradição número 4: "o FAQ diz que carga perigosa pode ser enviada com frete expresso 'com autorização', mas não existe documento formal (PROC ou POL) que defina esse processo. A informação pode ser prática informal não documentada." Declarar confiança Alta para uma resposta baseada exclusivamente em FAQ informal é uma violação direta dos guardrails. A confiança deveria ser Baixa, acompanhada de aviso de fonte informal.
+
+Conteúdo factual sem respaldo normativo: Não existe nenhuma POL ou PROC na base que autorize, defina critérios, ou regule o envio de carga perigosa por frete expresso. A resposta apresenta ao atendente um procedimento como se fosse política oficial quando, na documentação disponível, ele não passa de conhecimento tácito informal do time de atendimento.
+
+Risco operacional e regulatório: Carga perigosa está sujeita à regulação da ANTT. Uma orientação incorreta nessa área — baseada em fonte informal apresentada como normativa — pode gerar comprometimento contratual, responsabilidade operacional e risco regulatório real para a NovaTech. Este é exatamente o tipo de situação para a qual os guardrails foram desenhados.
+
+O que a resposta deveria ter feito: informar que não há documento formal indexado definindo esse processo, citar o FAQ item 32 explicitamente como fonte informal com baixa confiança, recomendar contato com o Compliance antes de qualquer comprometimento com o cliente, e não apresentar a informação como procedimento estabelecido.
+
+Problemas identificados: confiança Alta para fonte informal; ausência de normativo formal para o processo descrito; violação do guardrail de não tratar FAQ como documento normativo; risco operacional e regulatório pelo tema envolver carga perigosa e regulação ANTT.
